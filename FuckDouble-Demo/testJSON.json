@@ -1,0 +1,23 @@
+{
+    "array": [
+        1,
+        2,
+        3
+    ],
+    "boolean": true,
+    "null": null,
+    "number": 123,
+    "number1": 0.8,
+    "number2": 0.85,
+    "fuckNumber3": 0.088,
+    "numberString": "0.088",
+
+    "dateSting": "2015/3/24 15:33:4",
+    "date": "1427182384",
+    "object": {
+        "a": "b",
+        "c": "d",
+        "e": "f"
+    },
+    "string": "Hello World"
+}
