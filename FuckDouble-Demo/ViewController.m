@@ -20,6 +20,8 @@
     _responseObject = [self loadJSON:@"testJSON"];
     NSNumber *fuckNumber3 = [_responseObject objectForKey:@"fuckNumber3"];
     self.readLabel.text  = [NSString stringWithFormat:@"%g",  fuckNumber3.doubleValue];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,8 +48,8 @@
     }
 }
 
-
-- (IBAction)calTouched:(id)sender {
+#pragma mark -- 使用NSNumber double进行计算
+- (IBAction)calDouble:(id)sender {
     NSNumber *fuckNumber3 = [_responseObject objectForKey:@"fuckNumber3"];
     double inputNumber = [self.inputTextField.text doubleValue];
     
@@ -74,8 +76,8 @@
     NSLog(@"=============================================");
 
 }
-
-- (IBAction)cal3Touched:(id)sender {
+#pragma mark --使用NSDecimalNumber double进行计算
+- (IBAction)calDoubleWithNSDecimalNumber:(id)sender {
     NSNumber *fuckNumber3 = [_responseObject objectForKey:@"fuckNumber3"];
     
     NSDecimalNumber *result2 = [self calculateDecimalNumberWithOpration:_opration
@@ -89,17 +91,20 @@
     NSLog(@"=============================================");
 
 }
-
-- (IBAction)cal2Touched:(id)sender {
+#pragma mark -- 如何格式化输出double值而不丢失精度
+- (IBAction)output:(id)sender {
     double dTest = 0.088;
     NSNumber *dTestNumber = @(dTest);
     NSNumber *dTestNumber2 = [NSDecimalNumber numberWithDouble:dTestNumber.doubleValue];
 
-    self.resultLabel2.text = [NSString stringWithFormat:@"%lf",dTest];
-    self.resultLabel22.text = [dTestNumber stringValue];
-    self.resultLabel23.text = [dTestNumber2 stringValue];
-    self.resultLabel24.text = [NSString stringWithFormat:@"%g",dTest];
+    self.resultLabel2.text = [NSString stringWithFormat:@"%lf",dTest]; //%lf丢失精度
+    self.resultLabel22.text = [dTestNumber stringValue];  //NSNumber stringValue丢失精度
+    self.resultLabel23.text = [dTestNumber2 stringValue]; //NSDecimalNumber stringValue丢失精度
+    self.resultLabel24.text = [NSString stringWithFormat:@"%g",dTest];  //%g不丢失精度
 
+    NSString *doubleString        = [NSString stringWithFormat:@"%lf", dTest];
+    NSDecimalNumber *decNumber    = [NSDecimalNumber decimalNumberWithString:doubleString];
+    self.resultLabel25.text =  [decNumber stringValue];  //decimalNumberWithString 不丢失精度
 }
 
 - (NSDecimalNumber *)calculateDecimalNumberWithOpration:(NSString *)opration

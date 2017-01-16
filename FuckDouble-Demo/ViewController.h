@@ -20,16 +20,20 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *oprationButtons;
 
 - (IBAction)oprationSelect:(id)sender;
-- (IBAction)calTouched:(id)sender;
-- (IBAction)cal3Touched:(id)sender;
+//使用NSNumber double进行计算
+- (IBAction)calDouble:(id)sender;
+//使用NSDecimalNumber double进行计算
+- (IBAction)calDoubleWithNSDecimalNumber:(id)sender;
+//如何格式化输出double值而不丢失精度
+- (IBAction)output:(id)sender;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel2;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel22;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel23;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel24;
+@property (weak, nonatomic) IBOutlet UILabel *resultLabel25;
 
-- (IBAction)cal2Touched:(id)sender;
 
 @end
 
